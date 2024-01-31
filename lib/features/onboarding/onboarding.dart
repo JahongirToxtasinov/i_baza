@@ -5,6 +5,7 @@ import 'package:i_baza/assets/constants/colors.dart';
 import 'package:i_baza/core/widgets/language_button.dart';
 import 'package:i_baza/core/widgets/skip_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../assets/constants/icons.dart';
 import '../../assets/constants/images.dart';
@@ -47,6 +48,7 @@ class _OnBoardingState extends State<OnBoarding> {
       );
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,7 +76,9 @@ class _OnBoardingState extends State<OnBoarding> {
                       const Spacer(),
                       SkipButton(
                         onTap: () {
-                          serviceLocator<SharedPreferences>().setBool('wizard', true).then((_) {
+                          serviceLocator<SharedPreferences>()
+                              .setBool('wizard', true)
+                              .then((_) {
                             Navigator.of(context).pushNamed("/login");
                           });
                         },
@@ -87,9 +91,10 @@ class _OnBoardingState extends State<OnBoarding> {
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16),
                   ),
-                  const Row(mainAxisAlignment: MainAxisAlignment.start,
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                       Gap(20),
+                      Gap(20),
                       Text(
                         "10 000 dan ortiq\nmahsulotlar va qulay \ninterfeys",
                         style: TextStyle(
@@ -101,7 +106,8 @@ class _OnBoardingState extends State<OnBoarding> {
                     ],
                   ),
                   const Gap(12),
-                  const Row(mainAxisAlignment: MainAxisAlignment.start,
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Gap(20),
                       Text(
@@ -110,10 +116,8 @@ class _OnBoardingState extends State<OnBoarding> {
                       ),
                     ],
                   ),
-
                 ],
               ),
-
               Column(
                 children: [
                   const Gap(24),
@@ -124,7 +128,9 @@ class _OnBoardingState extends State<OnBoarding> {
                       const Spacer(),
                       SkipButton(
                         onTap: () {
-                          serviceLocator<SharedPreferences>().setBool('wizard', true).then((_) {
+                          serviceLocator<SharedPreferences>()
+                              .setBool('wizard', true)
+                              .then((_) {
                             Navigator.of(context).pushNamed("/login");
                           });
                         },
@@ -137,7 +143,8 @@ class _OnBoardingState extends State<OnBoarding> {
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16),
                   ),
-                  const Row(mainAxisAlignment: MainAxisAlignment.start,
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Gap(20),
                       Text(
@@ -151,7 +158,8 @@ class _OnBoardingState extends State<OnBoarding> {
                     ],
                   ),
                   const Gap(12),
-                  const Row(mainAxisAlignment: MainAxisAlignment.start,
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Gap(20),
                       Text(
@@ -160,34 +168,24 @@ class _OnBoardingState extends State<OnBoarding> {
                       ),
                     ],
                   ),
-
                 ],
               ),
-
-              Column(
+              const Column(
                 children: [
-                  const Gap(24),
+                  Gap(24),
                   Row(
                     children: [
-                      const Gap(20),
-                      const LangButton(),
-                      const Spacer(),
-                      SkipButton(
-                        onTap: () {
-                          serviceLocator<SharedPreferences>().setBool('wizard', true).then((_) {
-                            Navigator.of(context).pushNamed("/login");
-                          });
-                        },
-                        text: "O‘tkazib yuborish",
-                      ),
-                      const Gap(20),
+                      Gap(20),
+                      LangButton(),
+                      Spacer(),
                     ],
                   ),
-                  const Gap(32),
-                  const Padding(
+                  Gap(32),
+                  Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16),
                   ),
-                  const Row(mainAxisAlignment: MainAxisAlignment.start,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Gap(20),
                       Text(
@@ -200,8 +198,9 @@ class _OnBoardingState extends State<OnBoarding> {
                       ),
                     ],
                   ),
-                  const Gap(12),
-                  const Row(mainAxisAlignment: MainAxisAlignment.start,
+                  Gap(12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Gap(20),
                       Text(
@@ -210,10 +209,8 @@ class _OnBoardingState extends State<OnBoarding> {
                       ),
                     ],
                   ),
-
                 ],
               ),
-
             ],
           ),
         ),
@@ -221,59 +218,45 @@ class _OnBoardingState extends State<OnBoarding> {
         bottomNavigationBar: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            thisPage == 2
+            thisPage > 0
                 ? GestureDetector(
-              onTap: () {
-                controller.previousPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.ease);
-              },
-              child: Container(
-                height: 44,
-                width: 44,
-                margin: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).padding.bottom + 24,
-                    left: 24),
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: grey,
-                ),
-                child: SvgPicture.asset(AppIcons.arrowLeft),
-              ),
-            )
+                    onTap: () {
+                      controller.previousPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.ease);
+                    },
+                    child: Container(
+                      height: 44,
+                      width: 44,
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).padding.bottom + 24,
+                          left: 24),
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.white,
+                      ),
+                      child: SvgPicture.asset(AppIcons.arrowLeft),
+                    ),
+                  )
                 : const SizedBox(
-              height: 44,
-              width: 66,
-            ),
+                    height: 44,
+                    width: 66,
+                  ),
             const Spacer(),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 250),
-              height: 8,
-              width: thisPage == 0 ? 24 : 8,
-              margin: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).padding.bottom + 30, right: 4),
-              decoration: BoxDecoration(
-                color: grey ,
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 250),
-              height: 8,
-              width: thisPage == 1 ? 24 : 8,
-              margin: EdgeInsets.only(
-                bottom: MediaQuery.of(context).padding.bottom + 30,
-              ),
-              decoration: BoxDecoration(
-                color: grey,
-                borderRadius: BorderRadius.circular(12),
+            SmoothPageIndicator(
+              controller: controller, // PageController
+              count: 3,
+              textDirection: TextDirection.ltr,
+              effect: const ExpandingDotsEffect(
+                dotColor: Colors.white,
+                activeDotColor: Colors.white,
               ),
             ),
             const Spacer(),
             GestureDetector(
               onTap: () async {
-                if (thisPage == 0) {
+                if (thisPage == 0 || thisPage == 1) {
                   controller.nextPage(
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.ease);
@@ -286,16 +269,29 @@ class _OnBoardingState extends State<OnBoarding> {
               },
               child: Container(
                 height: 44,
-                width: 44,
                 margin: EdgeInsets.only(
                     bottom: MediaQuery.of(context).padding.bottom + 24,
                     right: 24),
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: grey,
+                  color: Colors.black,
                 ),
-                child: SvgPicture.asset(AppIcons.arrowRight),
+                child: thisPage == 2
+                    ?  Row(
+                        children: [
+                          const Text(
+                            "Olg'a",
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                          const Gap(4),
+                          SvgPicture.asset(AppIcons.arrowRight,color: Colors.white,)
+                        ],
+                      )
+                    : SvgPicture.asset(
+                        AppIcons.arrowRight,
+                        color: Colors.white,
+                      ),
               ),
             ),
           ],

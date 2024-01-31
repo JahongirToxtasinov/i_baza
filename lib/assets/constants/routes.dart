@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:i_baza/features/profile/presentation/pages/edit_profile.dart';
 
 import '../../core/pages/error.dart';
+import '../../core/pages/file_screen.dart';
 import '../../core/pages/splash_screen.dart';
 import '../../features/onboarding/onboarding.dart';
+import '../../features/profile/presentation/pages/profile.dart';
 
 class RouteGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -11,11 +14,13 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (context) => const SplashScreen(),
+          builder: (context) => const Profile(),
         );
 
       case "/onBoarding":
         return MaterialPageRoute(builder: (context) => const OnBoarding());
+      case "/editProfile":
+        return MaterialPageRoute(builder: (context) => const EditProfileScreen());
       // case '/home':
       //   return MaterialPageRoute(
       //     builder: (context) => const HomeScreen(),
@@ -38,7 +43,7 @@ class RouteGenerator {
       //   return MaterialPageRoute(builder: (context) => const CreateScreen());
       default:
         return MaterialPageRoute(
-          builder: (context) => const ErrorPage(),
+          builder: (context) => const Profile(),
         );
     }
   }

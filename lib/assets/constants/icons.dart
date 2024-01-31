@@ -14,6 +14,7 @@ abstract class AppIcons{
   static const eyeOff = '${_as}eyeOff.svg';
   static const eyeOn = '${_as}eyeOn.svg';
 
-
-
+  static const editPen = '${_as}editPen.svg';
+  static const editPenBg = '${_as}editPenWithBg.svg';
+  static const exit = '${_as}exit.svg';
 }
