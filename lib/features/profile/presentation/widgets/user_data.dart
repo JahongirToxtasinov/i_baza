@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,9 +28,7 @@ class UserDataUi extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
-                    onTap: onTap,
-                    child: SvgPicture.asset(AppIcons.editPenBg,color: Colors.white,)),
+                SvgPicture.asset(AppIcons.editPenBg,color: Colors.white,),
                 Container(
                   width: 72,
                   height: 72,
@@ -42,24 +39,20 @@ class UserDataUi extends StatelessWidget {
                   ),
                   child: user?.picture == null
                       ? const Icon(Icons.person, size: 70, color: Colors.grey)
-                      : Image.file(
-                    user?.picture! as File,
-                    fit: BoxFit.cover,
-                  ),
+                      : Image.asset(user!.picture!,fit: BoxFit.cover,)
                 ),
-                InkWell(
-                  onTap: (){},
-                    child: SvgPicture.asset(AppIcons.editPenBg)
-                )
+                GestureDetector(
+                  onTap: onTap,
+                    child: SvgPicture.asset(AppIcons.editPenBg))
 
               ],
             ),
             const Gap(20),
             const Text("F.I.Sh",style: TextStyle(color: grey,fontWeight: FontWeight.w600),),
-            Text('${user?.lastName ?? 'Shoxrux'} ${user?.firstName ?? 'Shavqiyev'}',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 17),),
+            Text('${user?.lastName ?? 'Shoxrux'} ${user?.firstName ?? 'Shavqiyev'}',style: const TextStyle(fontWeight: FontWeight.w600,fontSize: 17),),
             const Gap(16),
             const Text("Manzilingiz",style: TextStyle(color: grey,fontWeight: FontWeight.w600),),
-            Text('${user?.address ?? 'Toshkent shahar, Mirobod tumani Fidokor ko‘chasi'}',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 17),),
+            Text(user?.address ?? 'Toshkent shahar, Mirobod tumani Fidokor ko‘chasi',style: const TextStyle(fontWeight: FontWeight.w600,fontSize: 17),),
           ],
         ),
       ),

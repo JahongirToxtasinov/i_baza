@@ -76,10 +76,13 @@
 //   }
 // }
 import 'package:flutter/material.dart';
+import 'package:i_baza/features/category/data/repository/category.dart';
+import 'package:i_baza/features/category/presentation/bloc/category_bloc.dart';
 import 'assets/constants/routes.dart';
 import 'core/injector/injector.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter binding is initialized
   await setupLocator(); // Ensure your dependency injector is set up
   runApp(const App());
@@ -96,14 +99,20 @@ class _AppState extends State<App> {
   final _navigatorKey = GlobalKey<NavigatorState>();
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context) => MultiBlocProvider(
+    providers: [
+      BlocProvider(
+          create: (context) => CategoryBloc(response: CategoryRepository())),
+
+    ],
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'IBaza',
+      title: 'my_shop',
       navigatorKey: _navigatorKey,
       onGenerateRoute: RouteGenerator.onGenerateRoute,
-    );
+    ),
+  );
   }
-}
+
 
 
