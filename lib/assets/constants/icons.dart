@@ -17,4 +17,15 @@ abstract class AppIcons{
   static const editPen = '${_as}editPen.svg';
   static const editPenBg = '${_as}editPenWithBg.svg';
   static const exit = '${_as}exit.svg';
+
+  static const like = '${_as}like.svg';
+  static const bell = '${_as}bell.svg';
+  static const settings = '${_as}settings.svg';
+
+  static const sNotes = '${_as}sNotes.svg';
+  static const sIB = '${_as}sIB.svg';
+  static const sAbout = '${_as}sAbout.svg';
+  static const sStar = '${_as}sStar.svg';
+  static const sCall = '${_as}sCall.svg';
+
 }

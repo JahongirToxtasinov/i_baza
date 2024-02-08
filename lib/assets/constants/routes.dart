@@ -6,6 +6,7 @@ import '../../core/pages/file_screen.dart';
 import '../../core/pages/splash_screen.dart';
 import '../../features/category/presentation/pages/category_screen.dart';
 import '../../features/onboarding/onboarding.dart';
+import '../../features/profile/presentation/pages/main_profile.dart';
 import '../../features/profile/presentation/pages/profile.dart';
 
 class RouteGenerator {
@@ -15,11 +16,13 @@ class RouteGenerator {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          builder: (context) => const CategoryScreen(),
+          builder: (context) => const MainProfile(),
         );
 
       case "/onBoarding":
         return MaterialPageRoute(builder: (context) => const OnBoarding());
+      case "/profile":
+        return MaterialPageRoute(builder: (context) => const Profile());
       case "/editProfile":
         return MaterialPageRoute(builder: (context) => const EditProfileScreen());
       // case '/home':
