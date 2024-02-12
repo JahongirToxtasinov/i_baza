@@ -1,6 +1,15 @@
 const _as = 'assets/icons/';
+const _ab = 'assets/icons/navbar/';
 
 abstract class AppIcons{
+
+  static const main = '${_ab}main.svg';
+  static const catalog = '${_ab}category.svg';
+  static const orders = '${_ab}orders.svg';
+  static const bin = '${_ab}bin.svg';
+  static const profile = '${_ab}profile.svg';
+
+
   static const mainLogo = '${_as}main_logo.svg';
 
   static const arrowEnd = '${_as}arrowEnd.svg';

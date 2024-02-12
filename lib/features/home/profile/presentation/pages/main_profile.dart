@@ -3,10 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:i_baza/assets/constants/icons.dart';
 import 'package:i_baza/assets/constants/images.dart';
-import 'package:i_baza/features/profile/presentation/widgets/square_widget.dart';
-import 'package:i_baza/features/profile/presentation/widgets/tail_widgets.dart';
+import 'package:i_baza/assets/constants/route_names/profile.dart';
 
-import '../../../../assets/constants/colors.dart';
+import '../../../../../assets/constants/colors.dart';
+import '../widgets/square_widget.dart';
+import '../widgets/tail_widgets.dart';
 
 class MainProfile extends StatelessWidget {
   const MainProfile({super.key});
@@ -20,7 +21,7 @@ class MainProfile extends StatelessWidget {
           const Gap(68),
           ListTile(
             onTap: (){
-              Navigator.of(context).pushNamed("/profile");
+              Navigator.of(context).pushNamedAndRemoveUntil(ProfileRouteNames.mainProfile, (_) => false);
             },
             leading: Container(
                 width: 72,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:i_baza/assets/constants/colors.dart';
 import 'package:i_baza/core/widgets/language_button.dart';
 import 'package:i_baza/core/widgets/skip_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../assets/constants/icons.dart';
 import '../../assets/constants/images.dart';
+import '../../assets/constants/route_names/app_route.dart';
 import '../../core/injector/injector.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -79,7 +79,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           serviceLocator<SharedPreferences>()
                               .setBool('wizard', true)
                               .then((_) {
-                            Navigator.of(context).pushNamed("/login");
+                            Navigator.of(context).pushNamedAndRemoveUntil(AppRouteNames.home, (_) => false);
                           });
                         },
                         text: "O‘tkazib yuborish",

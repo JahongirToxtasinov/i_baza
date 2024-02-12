@@ -3,7 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:i_baza/assets/constants/colors.dart';
 
-import '../../../../assets/constants/icons.dart';
+import '../../../../../assets/constants/icons.dart';
+
 
 class ExitButton extends StatelessWidget {
   const ExitButton({super.key});
@@ -31,7 +32,7 @@ class ExitButton extends StatelessWidget {
                 children: [
                   SvgPicture.asset(AppIcons.exit),
                   const Gap(8),
-                  Text('Chiqish',style: TextStyle(color: red,fontWeight: FontWeight.w600),)
+                  const Text('Chiqish',style: TextStyle(color: red,fontWeight: FontWeight.w600),)
                 ],
               ),
             )

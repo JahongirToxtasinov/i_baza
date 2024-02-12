@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../assets/constants/icons.dart';
 import '../../assets/constants/images.dart';
+import '../../assets/constants/route_names/app_route.dart';
 import '../injector/injector.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -28,8 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         //       .pushNamedAndRemoveUntil('/onBoarding', (_) => false);
         // }
 
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('/onBoarding', (_) => false);
+      Navigator.of(context).pushNamedAndRemoveUntil(AppRouteNames.onBoarding, (_) => false);
 
     });
     super.initState();

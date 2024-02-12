@@ -50,6 +50,7 @@ flutter:
 
   assets:
     - assets/icons/
+    - assets/icons/navbar/
     - assets/images/
     - assets/images/category/
 

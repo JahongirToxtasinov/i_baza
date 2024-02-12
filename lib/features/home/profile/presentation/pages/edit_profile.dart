@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:i_baza/assets/constants/icons.dart';
-import 'package:i_baza/features/auth/data/data_source/data_source.dart';
 
-import '../../../../assets/constants/colors.dart';
+import '../../../../../assets/constants/colors.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});

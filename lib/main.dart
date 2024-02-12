@@ -78,7 +78,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_baza/features/category/data/repository/category.dart';
 import 'package:i_baza/features/category/presentation/bloc/category_bloc.dart';
-import 'assets/constants/routes.dart';
+import 'assets/constants/routes/app_route.dart';
 import 'core/injector/injector.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
@@ -109,7 +109,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       title: 'my_shop',
       navigatorKey: _navigatorKey,
-      onGenerateRoute: RouteGenerator.onGenerateRoute,
+      onGenerateRoute: AppRoute.onGenerateRoute,
     ),
   );
   }
